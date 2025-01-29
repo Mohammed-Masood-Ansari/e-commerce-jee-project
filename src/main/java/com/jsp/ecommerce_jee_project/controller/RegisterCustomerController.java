@@ -3,6 +3,10 @@ package com.jsp.ecommerce_jee_project.controller;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.jsp.ecommerce_jee_project.dao.CustomerDao;
+import com.jsp.ecommerce_jee_project.dao.impl.CustomerDaoImpl;
+import com.jsp.ecommerce_jee_project.entity.Customer;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -27,7 +31,20 @@ public class RegisterCustomerController extends HttpServlet{
 		
 		byte[] image1=stream.readAllBytes();
 		
-		System.out.println(stream+" "+image);
-		System.out.println(password);
+		
+		Customer customer1 = new Customer(name, email, password, image1);
+		
+		
+		CustomerDao customerDao = new CustomerDaoImpl();
+		
+		Customer customer2=customerDao.registerCustomerDao(customer1);
+		
+		if(customer2!=null) {
+			
+			req.getRequestDispatcher("customer-login.jsp").forward(req, resp);
+		}else {
+			req.setAttribute("msg", "check with your code something went wrong");
+			req.getRequestDispatcher("customer-register.jsp").forward(req, resp);
+		}
 	}
 }

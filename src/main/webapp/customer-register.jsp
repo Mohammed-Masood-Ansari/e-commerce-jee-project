@@ -24,6 +24,9 @@
 </head>
 <body>
 
+	<%
+			String msg=(String)request.getAttribute("msg");
+	%>
 
 	<section class="vh-100" style="background-color: #2779e2;">
 		<div class="container h-100">
@@ -32,6 +35,8 @@
 				<div class="col-xl-9">
 
 					<h1 class="text-white mb-4">Customer-Registration</h1>
+					
+					<%if(msg!=null){ %> <h3 style="color: red;"><%=msg%></h3><%}%>
 
 					<form action="customerRegister" method="post" enctype="multipart/form-data">
 						<div class="card" style="border-radius: 15px;">
