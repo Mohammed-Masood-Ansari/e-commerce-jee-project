@@ -13,5 +13,14 @@ public class Admin {
 	private String adminName;
 	private String adminEmail;
 	private String adminPassword;
+	
+	public Admin(String adminEmail, String adminPassword) {
+		super();
+		this.adminEmail = adminEmail;
+		this.adminPassword = adminPassword;
+	}
+	
+	
+	
 
 }
