@@ -29,4 +29,14 @@ public class ProductOwner {
 		this.ownerEmail = ownerEmail;
 		this.ownerPassword = ownerPassword;
 	}
+
+	public ProductOwner(int ownerId, String ownerName, String ownerEmail, String ownerVerify) {
+		super();
+		this.ownerId = ownerId;
+		this.ownerName = ownerName;
+		this.ownerEmail = ownerEmail;
+		this.ownerVerify = ownerVerify;
+	}
+	
+	
 }
